@@ -5,7 +5,6 @@ def get_word():
     word = random.choice(words_list)
     return word.upper()
 
-
 def play(word):
     word_completion = "_" * len(word)
     guessed = False
@@ -41,6 +40,7 @@ def play(word):
                 word_completion = "".join(word_as_list)
                 if "_" not in word_completion:
                     guessed = True
+                    
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
                 print("Already guessed the word",guess)
@@ -61,16 +61,9 @@ def play(word):
         print("\n")
     if guessed:
         print("The word is " +word+ ".")
-        print("Wow! You guessed the word, you are amazing " )
-        
-
-        
+        print("Wow! You guessed the word, you are amazing")
     else:
         print("Sorry, you lose")
-
-
-
-
 
 def display_hangman(tries):
     stages = [  """
@@ -138,15 +131,12 @@ def display_hangman(tries):
                 """
     ]
     return stages[tries]
-
-
 def main():
     word = get_word()
     play(word)
     while input("Play Again? (Y/N): ").upper() == "Y":
         word = get_word()
         play(word)
-
 
 if __name__ == "__main__":
     main()
